@@ -5,7 +5,6 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/psix"
     tools:context=".MainActivity">
 
     <TextView
@@ -36,6 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:focusable="true"
+        app:tint="@color/white"
+        app:backgroundTint="#EE0B0B08"
+        android:contentDescription="@string/add_todo_desc"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
