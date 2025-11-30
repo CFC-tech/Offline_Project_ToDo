@@ -35,13 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/metropolis_regular"
-        android:text="Tittle"
+        android:text="Title"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/btnback"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/etTittle"
+        android:id="@+id/etTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -65,11 +65,11 @@
         android:text="Description"
         android:textSize="20sp"
         android:fontFamily="@font/metropolis_regular"
-        app:layout_constraintStart_toStartOf="@+id/etTittle"
-        app:layout_constraintTop_toBottomOf="@+id/etTittle" />
+        app:layout_constraintStart_toStartOf="@+id/etTitle"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/etDes"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="4dp"
@@ -79,7 +79,7 @@
         android:hint="Enter your description"
         android:textSize="20sp"
         android:fontFamily="@font/metropolis_regular"
-        app:layout_constraintEnd_toEndOf="@+id/etTittle"
+        app:layout_constraintEnd_toEndOf="@+id/etTitle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -100,8 +100,8 @@
         android:text="Date"
         android:textSize="20sp"
         android:fontFamily="@font/metropolis_regular"
-        app:layout_constraintStart_toStartOf="@+id/editTextText3"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText3" />
+        app:layout_constraintStart_toStartOf="@+id/etDes"
+        app:layout_constraintTop_toBottomOf="@+id/etDes" />
 
     <TextView
         android:id="@+id/txtDate"
@@ -109,17 +109,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="dd-MM-yyyy"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:fontFamily="@font/metropolis_regular"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imgDate"
         app:layout_constraintStart_toStartOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgDate"
         android:layout_width="35dp"
         android:layout_height="47dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/txtDate"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/txtDate"
@@ -144,20 +144,20 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/metropolis_regular"
         android:text="00:00"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/txtDate"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
+        app:layout_constraintEnd_toStartOf="@+id/imgTime"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/txtDate"
         app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgTime"
         android:layout_width="35dp"
         android:layout_height="47dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="@+id/editTextText3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/imgDate"
+        app:layout_constraintEnd_toEndOf="@+id/etDes"
+        app:layout_constraintTop_toTopOf="@+id/imgDate"
         app:layout_constraintVertical_bias="0.4"
         app:srcCompat="@drawable/clock" />
 
@@ -168,11 +168,10 @@
         android:layout_marginTop="68dp"
         android:backgroundTint="#211E1E"
         android:clickable="true"
-        android:contentDescription="@string/fa_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/imgDate"
         app:srcCompat="@drawable/check"
         app:tint="@color/white" />
 
