@@ -41,21 +41,23 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     }
 
     fun getAllData(): List<TodoList> {
-        val noteList = mutableListOf<TodoList>()
-        readableDatabase.use { db ->
-            db.rawQuery("SELECT * FROM $TABLE_NAME", null).use { cursor ->
-                while (cursor.moveToNext()) {
-                    val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
-                    val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
-                    val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
-                    val date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
-                    val time = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIME))
-                    val todo = TodoList(id, title, description, date, time)
-                    noteList.add(todo)
-                }
-            }
+        val notelist = mutableListOf<TodoList>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(query, null)
+        while ( cursor.moveToNext() ) {
+            val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+            val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+            val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
+            val date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
+            val time = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIME))
+            val todo = TodoList(id, title, description, date, time)
+            notelist.add(todo)
         }
-        return noteList
+        cursor.close()
+        db.close()
+        return notelist
+
     }
     fun deleteDate(noteID: Int){
         val db = writableDatabase

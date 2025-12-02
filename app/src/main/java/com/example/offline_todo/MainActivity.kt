@@ -1,5 +1,6 @@
 package com.example.offline_todo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         binding.addTodo.setOnClickListener {
-            startActivity(android.content.Intent(this, AddToDo::class.java))
+            startActivity(Intent(this, AddToDo::class.java))
         }
 
         var layoutManager = LinearLayoutManager(this)
