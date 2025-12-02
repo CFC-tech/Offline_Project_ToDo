@@ -1,5 +1,6 @@
 package com.example.offline_todo
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,24 @@ class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : Recycler
         holder.title.text = todo.title
         holder.description.text = todo.description
         holder.date.text = todo.date
+        holder.imgEdit.setOnClickListener {
+
+        }
+        holder.imgDelete.setOnClickListener {
+            val bulder = AlertDialog.Builder(context)
+            bulder.setTitle("Delete")
+            bulder.setMessage("Are you sure you want to delete this item?")
+            bulder.setPositiveButton("OK") { dialog, which ->
+
+            }
+            bulder.setNegativeButton("Cancel") { dialog, which ->
+                dialog.dismiss()
+            }
+            val dialog : AlertDialog = bulder.create()
+            dialog.show()
+
+        }
+
 
     }
 
