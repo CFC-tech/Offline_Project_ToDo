@@ -81,4 +81,17 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.close()
         return note
     }
+    fun updateData(todo: TodoList){
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(COLUMN_TITLE, todo.title)
+            put(COLUMN_DESCRIPTION, todo.description)
+            put(COLUMN_DATE, todo.date)
+            put(COLUMN_TIME, todo.time)
+        }
+        val whereClass = "$COLUMN_ID=?"
+        val whereArgs = arrayOf(todo.id.toString())
+        db.update(TABLE_NAME, values, whereClass, whereArgs)
+        db.close()
+    }
 }

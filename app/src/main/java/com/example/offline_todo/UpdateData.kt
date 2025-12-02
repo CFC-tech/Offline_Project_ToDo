@@ -28,6 +28,10 @@ class UpdateData : AppCompatActivity() {
             onBackPressed()
         }
 
+        binding.btnUpdate.setOnClickListener {
+
+        }
+
 
         setContentView(binding.root)
 
