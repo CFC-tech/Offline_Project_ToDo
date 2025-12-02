@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 
 class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
+    private val db = DatabaseHelper(context)
     class ToDoViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         var title = itemView.findViewById<TextView>(R.id.noteTitle)
         var description = itemView.findViewById<TextView>(R.id.noteDes)
@@ -36,6 +38,9 @@ class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : Recycler
             bulder.setTitle("Delete")
             bulder.setMessage("Are you sure you want to delete this item?")
             bulder.setPositiveButton("OK") { dialog, which ->
+                db.deleteDate(todo.id)
+                refreshData(db.getAllData())
+                Toast.makeText(context, "Deleted Successfully", Toast.LENGTH_SHORT).show()
 
             }
             bulder.setNegativeButton("Cancel") { dialog, which ->

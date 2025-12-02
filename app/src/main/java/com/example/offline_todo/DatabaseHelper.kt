@@ -28,9 +28,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         onCreate(db)
     }
 
-    /**
-     * Inserts a todo and returns the new row id (or -1 on failure).
-     */
     fun insertData(todo: TodoList): Long {
         val values = ContentValues().apply {
             put(COLUMN_TITLE, todo.title)
@@ -43,9 +40,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         }
     }
 
-    /**
-     * Returns all todos. Uses automatic resource closing with `use`.
-     */
     fun getAllData(): List<TodoList> {
         val noteList = mutableListOf<TodoList>()
         readableDatabase.use { db ->
@@ -62,5 +56,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
             }
         }
         return noteList
+    }
+    fun deleteDate(noteID: Int){
+        val db = writableDatabase
+        val whereClass = "$COLUMN_ID=?"
+        val whereArgs = arrayOf(noteID.toString())
+        db.delete(TABLE_NAME, whereClass, whereArgs)
+        db.close()
     }
 }
