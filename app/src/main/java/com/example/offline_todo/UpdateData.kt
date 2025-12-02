@@ -24,6 +24,11 @@ class UpdateData : AppCompatActivity() {
         binding.txtTime.text = todoData.time
 
 
+        binding.btnback.setOnClickListener {
+            onBackPressed()
+        }
+
+
         setContentView(binding.root)
 
     }
