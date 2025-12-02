@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Offline_ToDo">
         <activity
+            android:name=".UpdateData"
+            android:exported="false" />
+        <activity
             android:name=".AddToDo"
             android:exported="false" />
         <activity

@@ -2,6 +2,7 @@ package com.example.offline_todo
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,9 +31,15 @@ class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : Recycler
         holder.title.text = todo.title
         holder.description.text = todo.description
         holder.date.text = todo.date
-        holder.imgEdit.setOnClickListener {
 
+        holder.imgEdit.setOnClickListener {
+            val intent = Intent(context, UpdateData::class.java)
+            intent.putExtra("id", todo.id)
+            context.startActivity(intent)
         }
+
+
+
         holder.imgDelete.setOnClickListener {
             val bulder = AlertDialog.Builder(context)
             bulder.setTitle("Delete")

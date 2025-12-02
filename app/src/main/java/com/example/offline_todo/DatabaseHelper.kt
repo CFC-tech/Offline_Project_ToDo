@@ -66,4 +66,19 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         db.delete(TABLE_NAME, whereClass, whereArgs)
         db.close()
     }
+
+    fun getNoteById(noteId: Int): TodoList{
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_NAME WHERE $COLUMN_ID = $noteId"
+        val cursor = db.rawQuery(query, null)
+        cursor.moveToFirst()
+        val id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID))
+        val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
+        val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
+        val date = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
+        val time = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIME))
+        val note = TodoList(id, title, description, date, time)
+        db.close()
+        return note
+    }
 }
