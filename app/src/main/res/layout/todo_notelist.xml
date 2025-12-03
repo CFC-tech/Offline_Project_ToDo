@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
+    android:layout_margin="2dp"
     android:background="@drawable/note_bg">
 
     <TextView
@@ -17,7 +17,8 @@
         android:fontFamily="@font/metropolis_regular"
         android:text="Title"
         android:textAlignment="textStart"
-        android:textSize="17sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/imgEdit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,6 +29,7 @@
         android:id="@+id/noteDes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/metropolis_regular"
         android:text="TextView"

@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroudcolor"
     tools:context=".UpdateData">
 
     <ImageView
@@ -12,7 +13,7 @@
         android:layout_width="35dp"
         android:layout_height="39dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/arrow_back" />
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/metropolis_regular"
-        android:text="Add ToDo"
+        android:text="Update ToDo"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/btnback"
         app:layout_constraintStart_toEndOf="@+id/btnback"
