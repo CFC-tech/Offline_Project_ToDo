@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.offline_todo.Database.DatabaseHelper
+import com.example.offline_todo.Model.TodoList
 import com.example.offline_todo.databinding.ActivityAddToDoBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -76,6 +78,14 @@ class AddToDo : AppCompatActivity() {
 
             if (title.isEmpty()) {
                 Toast.makeText(this, "Please enter a title", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (description.isEmpty()) {
+                Toast.makeText(this, "Please enter a description", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (date.isEmpty()) {
+                Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

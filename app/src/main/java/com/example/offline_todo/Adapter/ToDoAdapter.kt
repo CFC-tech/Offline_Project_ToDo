@@ -1,4 +1,4 @@
-package com.example.offline_todo
+package com.example.offline_todo.Adapter
 
 import android.app.AlertDialog
 import android.content.Context
@@ -10,6 +10,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.offline_todo.Database.DatabaseHelper
+import com.example.offline_todo.R
+import com.example.offline_todo.Model.TodoList
+import com.example.offline_todo.UpdateData
 
 class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>() {
     private val db: DatabaseHelper = DatabaseHelper(context)
@@ -21,12 +25,12 @@ class ToDoAdapter(var todolist: List<TodoList>, var context: Context) : Recycler
         var imgDelete = itemView.findViewById<ImageView>(R.id.imgDelete)
         var imgEdit = itemView.findViewById<ImageView>(R.id.imgEdit)
     }
-    override fun onCreateViewHolder( parent: ViewGroup, viewType: Int): ToDoAdapter.ToDoViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.todo_notelist, parent, false)
         return ToDoViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ToDoAdapter.ToDoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ToDoViewHolder, position: Int) {
         val todo = todolist[position]
         holder.title.text = todo.title
         holder.description.text = todo.description

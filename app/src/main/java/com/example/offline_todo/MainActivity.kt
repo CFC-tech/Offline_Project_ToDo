@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.offline_todo.Adapter.ToDoAdapter
+import com.example.offline_todo.Database.DatabaseHelper
 import com.example.offline_todo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +32,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, AddToDo::class.java))
         }
 
-        var layoutManager = LinearLayoutManager(this)
+
+        val layoutManager = LinearLayoutManager(this)
         binding.rvTodo.layoutManager = layoutManager
 
 
